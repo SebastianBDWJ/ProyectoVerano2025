@@ -1,7 +1,7 @@
 import React from "react";
 import "./BarraIzquierda.css";
 
-const Sidebar = ({cambiarSeccion}) => {
+const Sidebar = ({ cambiarSeccion, setAreaFiltro }) => {
   return (
     <div className="sidebar">
       <div className="profile">
@@ -18,17 +18,39 @@ const Sidebar = ({cambiarSeccion}) => {
       <div className="menu">
         <h4>AREAS</h4>
         <ul>
-          <li onClick={() => cambiarSeccion("Cuidado Personal")}>Cuidado Personal</li>
-          <li onClick={() => cambiarSeccion("Salud")}>Salud</li>
-          <li onClick={() => cambiarSeccion("Estudio")}>Estudio</li>
+          <li onClick={() => {
+            setAreaFiltro("Cuidado Personal");
+            cambiarSeccion("Lista de Habitos");
+          }}>
+            Cuidado Personal
+          </li>
+
+          <li onClick={() => {
+            setAreaFiltro("Salud");
+            cambiarSeccion("Lista de Habitos");
+          }}>
+            Salud
+          </li>
+
+          <li onClick={() => {
+            setAreaFiltro("Estudio");
+            cambiarSeccion("Lista de Habitos");
+          }}>
+            Estudio
+          </li>
         </ul>
 
         <h4>MORE</h4>
         <ul>
           <li onClick={() => cambiarSeccion("Habito y Rutinas")}>Habito y Rutinas</li>
-          <li onClick={() => cambiarSeccion("Lista de Habitos")}>Lista de Habitos</li>
+          <li onClick={() => {
+            setAreaFiltro("Todas");
+            cambiarSeccion("Lista de Habitos");
+          }}>
+            Lista de Habitos
+          </li>
           <li onClick={() => cambiarSeccion("Manage Areas")}>Manage Areas</li>
-        <li onClick={() => cambiarSeccion("Resourse")}>Resourse</li>
+          <li onClick={() => cambiarSeccion("Resourse")}>Resourse</li>
         </ul>
       </div>
 
