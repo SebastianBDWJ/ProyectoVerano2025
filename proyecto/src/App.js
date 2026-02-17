@@ -1,8 +1,5 @@
 import "./App.css";
 import ListaHabitos from "./Components/ListaHabitos";
-import CuidadoP from "./Components/areas/CuidadoP";
-import salud from "./Components/areas/Salud.jsx";
-import Estudio from "./Components/areas/Estudio.jsx";
 import NuevoHabito from "./Components/NuevoHabito";
 import HabitosDashboard from "./Components/HabitosDashboard";
 import BarraI from "./Components/BarraIzquierda.jsx";
@@ -11,6 +8,8 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [seccionActiva, setSeccionActiva] = useState("Home");
+
+  const [areaFiltro, setAreaFiltro] = useState("Todas");
 
   const datosUsuario = {
     nombre: "Sebastian",
@@ -83,9 +82,18 @@ const marcarComoCumplido = (id) => {
   setHabitos(nuevosHabitos);
 };
 
+const habitosFiltrados =
+  areaFiltro === "Todas"
+    ? habitos
+    : habitos.filter(h => h.area === areaFiltro);
+
+
   return (
     <div className="app">
-      <BarraI cambiarSeccion={setSeccionActiva} />
+      <BarraI
+        cambiarSeccion={setSeccionActiva}
+        setAreaFiltro={setAreaFiltro}
+      />
 
       <div className="content">
 
@@ -109,32 +117,12 @@ const marcarComoCumplido = (id) => {
         )}
 
         {seccionActiva === "Lista de Habitos" && (
-          <ListaHabitos
-            habitos={habitos}
+          <ListaHabitos habitos={habitosFiltrados}
             marcarComoCumplido={marcarComoCumplido}
             eliminarHabito={eliminarHabito}
             toggleHabito={toggleHabito}
           />
         )}
-
-        {seccionActiva === "Cuidado Personal" && (
-          <CuidadoP
-            habitos={habitos}
-          />
-        )}
-
-        {seccionActiva === "Salud" && (
-          <salud
-            habitos={habitos}
-          />
-        )}
-
-        {seccionActiva === "Estudio" && (
-          <Estudio
-            habitos={habitos}
-          />
-        )}
-
       </div>
     </div>
   );
