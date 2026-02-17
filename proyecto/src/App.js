@@ -1,4 +1,6 @@
 import "./App.css";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import ListaHabitos from "./Components/ListaHabitos";
 import CuidadoP from "./Components/areas/CuidadoP";
 import salud from "./Components/areas/Salud.jsx";
@@ -84,6 +86,9 @@ const marcarComoCumplido = (id) => {
 };
 
   return (
+  <>
+    <Header />
+
     <div className="app">
       <BarraI cambiarSeccion={setSeccionActiva} />
 
@@ -118,26 +123,23 @@ const marcarComoCumplido = (id) => {
         )}
 
         {seccionActiva === "Cuidado Personal" && (
-          <CuidadoP
-            habitos={habitos}
-          />
+          <CuidadoP habitos={habitos} />
         )}
 
         {seccionActiva === "Salud" && (
-          <salud
-            habitos={habitos}
-          />
+          <salud habitos={habitos} />
         )}
 
         {seccionActiva === "Estudio" && (
-          <Estudio
-            habitos={habitos}
-          />
+          <Estudio habitos={habitos} />
         )}
 
       </div>
     </div>
-  );
+
+    <Footer />
+  </>
+);
 }
 
 export default App;
