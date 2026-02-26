@@ -1,0 +1,71 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1e2a38;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.menu h4 {
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #9aa5b1;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu li:hover {
+  color: #4da3ff;
+}
+
+.add-btn {
+  margin-top: auto;
+  padding: 10px;
+  background-color: #2e3b4e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.add-btn:hover {
+  background-color: #3f4f66;
+}
+
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4da3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
